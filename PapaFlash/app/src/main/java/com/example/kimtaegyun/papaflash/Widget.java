@@ -16,6 +16,7 @@ import android.widget.RemoteViews;
  * Implementation of App Widget functionality.
  */
 public class Widget extends AppWidgetProvider {
+
     private static final String ACTION_WIDGET_RECEIVER = "ActionRecieverWidget";
     private static final String CLICK_ACTION = "com.example.kimtaegyun.papaflash.CLICK";
     private RemoteViews views;
@@ -135,3 +136,4 @@ public class Widget extends AppWidgetProvider {
     }
 
 }
+
