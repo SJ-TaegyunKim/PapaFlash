@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.hardware.Camera;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 
@@ -21,8 +20,10 @@ public class Widget extends AppWidgetProvider {
     private RemoteViews views;
     private ComponentName updateAppWidget;
     public static boolean widgetValue;
-    public android.hardware.Camera mCamera = null;
-    public Camera.Parameters mCameraParameter;
+    //public android.hardware.Camera mCamera = null;
+    //public Camera.Parameters mCameraParameter;
+
+
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
@@ -30,6 +31,7 @@ public class Widget extends AppWidgetProvider {
         final int N = appWidgetIds.length;
         views = new RemoteViews("com.example.kimtaegyun.papaflash", R.layout.widget);
         //views = new RemoteViews("com.example.doublei", R.layout.widget);
+
 
         for (int i = 0; i < N; i++) {
             int appWidgetId = appWidgetIds[i];
@@ -73,7 +75,7 @@ public class Widget extends AppWidgetProvider {
             if (widgetValue) { // widgetValue 의 값이 true, 즉 현재 플래쉬가 꺼져있는 경우
                 views = new RemoteViews(context.getPackageName(), R.layout.widget);
 
-                FlashON();
+                //FlashON();
 
                 views.setImageViewResource(R.id.imageBtn, R.drawable.on);
                 // views 의 이미지 on으로 변경
@@ -87,7 +89,7 @@ public class Widget extends AppWidgetProvider {
             } else { // widgetValue 의 값이 false, 즉 현재 플래쉬가 켜져있을 경우
                 views = new RemoteViews(context.getPackageName(), R.layout.widget);
 
-                FlashOFF();
+                //FlashOFF();
 
                 views.setImageViewResource(R.id.imageBtn, R.drawable.off);
                 // views 의 이미지 off로 변경
@@ -119,7 +121,7 @@ public class Widget extends AppWidgetProvider {
         }
         super.onDeleted(context, appWidgetIds);
     }
-
+    /*
     public void FlashON(){
         if(mCamera !=null){
             mCamera.release();
@@ -133,5 +135,5 @@ public class Widget extends AppWidgetProvider {
     public void FlashOFF(){
         mCamera.release();
     }
-
+    */
 }
